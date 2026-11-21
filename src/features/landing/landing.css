@@ -84,7 +84,19 @@
   line-height: 1;
   text-shadow: 0 0 14px rgb(61 255 122 / 0.35);
 }
-.kl-mark span {
+.kl-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.kl-logo {
+  width: 36px;
+  height: 36px;
+}
+.kl-nav a {
+  white-space: nowrap;
+}
+.kl-mark-cursor {
   animation: kl-blink 1.1s steps(1) infinite;
 }
 .kl-nav-links {
@@ -604,12 +616,21 @@
   }
   .kl-nav {
     gap: 16px;
+    font-size: 13px;
+  }
+  .kl-mark {
+    gap: 8px;
+    font-size: 30px;
+  }
+  .kl-logo {
+    width: 30px;
+    height: 30px;
   }
   .kl-nav-links {
     display: none;
   }
   .kl-nav-end {
-    gap: 18px;
+    gap: 14px;
   }
   .kl-section {
     padding-top: 80px;
@@ -681,7 +702,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kl-mark span,
+  .kl-mark-cursor,
   .kl-cursor {
     animation: none;
   }

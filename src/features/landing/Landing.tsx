@@ -114,7 +114,10 @@ export function Landing() {
       </a>
       <header className="kl-nav">
         <a className="kl-mark" href="#top" aria-label="Kingslock, back to top">
-          kingslock<span aria-hidden="true">_</span>
+          <img className="kl-logo" src="/favicon.svg" alt="" width={36} height={36} />
+          <span>
+            kingslock<span className="kl-mark-cursor" aria-hidden="true">_</span>
+          </span>
         </a>
         <nav aria-label="Sections" className="kl-nav-links">
           <a href="#keys">Keys</a>

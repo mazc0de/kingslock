@@ -35,6 +35,11 @@ typography:
     fontSize: "34px"
     fontWeight: 400
     lineHeight: 1
+  wordmark-phone:
+    fontFamily: "VT323, ui-monospace, monospace"
+    fontSize: "30px"
+    fontWeight: 400
+    lineHeight: 1
   lede:
     fontFamily: "JetBrains Mono Variable, ui-monospace, monospace"
     fontSize: "17px"
@@ -165,7 +170,7 @@ The page is a terminal session the visitor runs against the vault. Every surface
 - **Display** (400, clamp(3.5rem, 7vw, 6rem), 0.88): the hero line and the closing line, with a 22px phosphor text-shadow.
 - **Headline** (400, clamp(2.6rem, 4.4vw, 4rem), 0.92): section headings, balanced.
 - **Close** (400, clamp(3rem, 6.5vw, 6rem), 0.92): the closing call, same glow as Display.
-- **Wordmark** (400, 34px VT323): `kingslock_` in the nav.
+- **Wordmark** (400, 34px VT323, 30px on phones): `kingslock_` in the nav, after the 36px logo (30px on phones).
 - **Lede** (400, 17px, 1.6): hero paragraph and ADR titles.
 - **Body** (400, 16px, 1.6): prose, max 46–52ch.
 - **UI** (600, 15px, 1): buttons and the clone command.
@@ -212,7 +217,7 @@ Square everything (radius 0). Frames are drawn the way a TUI draws a window: `Gl
 - **Focus:** a 2px green underline on the prompt row (`inset 0 -2px 0`).
 
 ### Navigation
-- VT323 wordmark `kingslock_` with a blinking underscore (stops under reduced motion), 14px mono links, quiet muted link for Owner sign-in. Section links hide below 720px.
+- The logo (`public/favicon.svg`: crown over a padlock with a green chromatic split, 36px, 30px on phones) before the VT323 wordmark `kingslock_` with a blinking underscore (stops under reduced motion), 14px mono links, quiet muted link for Owner sign-in. Section links hide below 720px.
 
 ### Breach Terminal (signature)
 A title bar (`attacker@leak: ~`), a scrolling `role="log"` screen, a prompt input and a row of command chips. Lines are toned `cmd`, `out`, `dim`, `ok` (prefixed ✓), `err` and `warn`. The first command types itself once on load; under reduced motion the output appears at once. Output must be real or verbatim from the codebase.

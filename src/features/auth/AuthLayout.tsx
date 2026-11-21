@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { KeyRound } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export function AuthLayout({
@@ -17,7 +16,7 @@ export function AuthLayout({
     <main className="flex min-h-svh items-center justify-center bg-muted/40 p-4">
       <div className="w-full max-w-md">
         <div className="mb-6 flex items-center justify-center gap-2 text-lg font-semibold">
-          <KeyRound className="size-5" /> Kingslock
+          <img src="/favicon.svg" alt="" width={28} height={28} className="size-7" /> Kingslock
         </div>
         <Card>
           <CardHeader>
