@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { KeyRound, Lock, Settings, Vault } from 'lucide-react'
+import { Lock, Settings, Vault } from 'lucide-react'
 import { Dashboard } from '@/features/vault/Dashboard'
 import { PlatformView } from '@/features/vault/PlatformView'
 import { SettingsPage } from '@/features/settings/SettingsPage'
@@ -31,7 +31,8 @@ export function AppShell() {
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-5xl items-center gap-2 px-4">
           <div className="mr-2 flex items-center gap-2 font-semibold">
-            <KeyRound className="size-5" /> <span className="hidden sm:inline">Kingslock</span>
+            <img src="/favicon.svg" alt="" width={28} height={28} className="size-7" />
+            <span className="hidden sm:inline">Kingslock</span>
           </div>
           <nav className="flex gap-1">
             {navButton('dashboard', 'Vault', Vault)}
