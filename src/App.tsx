@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MailCheck } from 'lucide-react'
 import { StepUpProvider } from '@/components/StepUpProvider'
 import { Button } from '@/components/ui/button'
@@ -8,17 +8,32 @@ import { EnrollTwoFactorScreen } from '@/features/auth/EnrollTwoFactorScreen'
 import { SetupScreen } from '@/features/auth/SetupScreen'
 import { SignInScreen } from '@/features/auth/SignInScreen'
 import { VerifyTwoFactorScreen } from '@/features/auth/VerifyTwoFactorScreen'
+import { Landing } from '@/features/landing/Landing'
 import { useSession } from '@/session/SessionProvider'
+
+/** The public landing page owns every hash except #unlock, which opens sign-in. */
+function useUnlockRequested() {
+  const read = () => window.location.hash === '#unlock'
+  const [requested, setRequested] = useState(read)
+  useEffect(() => {
+    const onChange = () => setRequested(read())
+    window.addEventListener('hashchange', onChange)
+    return () => window.removeEventListener('hashchange', onChange)
+  }, [])
+  return requested
+}
 
 export default function App() {
   const { phase } = useSession()
   const [awaitingEmail, setAwaitingEmail] = useState(false)
+  const unlockRequested = useUnlockRequested()
 
   switch (phase.kind) {
     case 'boot':
       return <div className="min-h-svh bg-muted/40" />
 
     case 'signed-out':
+      if (!unlockRequested && !awaitingEmail) return <Landing />
       if (awaitingEmail) {
         return (
           <AuthLayout title="Confirm your email" description="We sent you a confirmation link.">
